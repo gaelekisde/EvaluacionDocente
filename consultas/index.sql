@@ -43,3 +43,8 @@ values
 (3, 2),
 (1, 4),
 (2, 1);
+
+CREATE TABLE opiniones(
+    opinion_id INT NOT NULL AUTO_INCREMENT,
+    
+)

@@ -18,3 +18,13 @@ db.connect((err) => {
   console.log('Connectado correctamente a la base de datos el id es:', db.threadId);
 });
 
+// const consulta = "SELECT * FROM USUARIOS;"
+
+// db.query(consulta, (err, results) => {
+//   if (err) {
+//     console.error('Error executing query:', err.stack);
+//     return;
+//   }
+//   console.log('Query results:', results);
+// });
+
