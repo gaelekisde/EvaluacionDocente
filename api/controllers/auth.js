@@ -55,5 +55,8 @@ db.query(q, [req.body.user_handle], (err, data) => {
 };
 
 export const logout = (req, res) => {
-
+  res.clearCookie("accesToken",{
+    secure: true,
+    sameSite: "none"
+  }).status(200).json("se ha cerrado la sesion correctamente")
 }
