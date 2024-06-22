@@ -1,8 +1,9 @@
 import "./login.scss"
-
 const login = () => {
   return (
-    <div>login</div>
+    <div>
+      <h1>titulo</h1>
+    </div>
   )
 }
 
