@@ -1,9 +1,9 @@
-import Login  from "./pages/login/login.jsx"; 
+import Login  from "./pages/login/login"; 
 
 function App() {
   return (
     <div className="App">
-          <Login />
+      <Login/>
     </div>
   );
 }

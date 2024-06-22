@@ -46,20 +46,5 @@ values
 
 CREATE TABLE opiniones(
     opinion_id INT NOT NULL AUTO_INCREMENT,
-    user_id INT NOT NULL,
-    opinion_text VARCHAR(200) NOT NULL,
-    num_likes INT DEFAULT 0,
-    num_comments INT DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT (NOW()),
-    FOREIGN KEY (user_id) REFERENCES usuarios(user_id),
-    PRIMARY KEY (opinion_id)
+    
 )
-
---dar like
-/*
-use evaluaciondocente_db;
-update opiniones
-set num_likes = num_likes + 1;
-where user_id = 1;
-select * from opiniones;
-*/
