@@ -49,20 +49,22 @@ export const Register = () => {
   };
 
   return (
+    <>
     <form onSubmit={() => alert("Enviado")}>
-      <p>
+      <p className="Header">Registrarse a Anonimo</p>
+      <p className="Nombre_Usuario">
         Nombre de usuario:
         <input type="text" maxLength={20} placeholder="AredJ" name="user_handle" onChange={handleChange}/>
       </p>
-      <p>
+      <p className="No_Control">
         Numero de control:
         <input type="text" maxLength={9} placeholder="231G0168" name="user_nmrcontrol" onChange={handleChange}/>
       </p>
-      <p>
+      <p className="Password">
         Contraseña:
         <input type="password" maxLength={200} placeholder="password" name="password" onChange={handleChange}/>
       </p>
-      <p>
+      <p className="Carrera">
         Carrera:
         <select name="user_carrera" onChange={handleChange}>
           <option value={"Sistemas computacionales"}>
@@ -80,7 +82,7 @@ export const Register = () => {
           <option value="Sabatina">Modalidad Sabatina</option>
         </select>
       </p>
-      <p>
+      <p className="Semestre">
         Semestre:
         <select name="user_semestre" onChange={handleChange}>
           <option value={1}>1</option>
@@ -94,16 +96,16 @@ export const Register = () => {
           <option value={9}>9</option>
         </select>
       </p>
-      <p>
+      <p className="Nombre">
         Nombre(s):
         <input type="text" maxLength={15} placeholder="Jared Abisai" name="first_name" onChange={handleChange}/>
       </p>
-      <p>
+      <p className="Apellido">
         Apellidos:
         <input type="text" maxLength={20} placeholder="Cantu Rodriguez" name="last_name" onChange={handleChange} />
       </p>
-      <button onClick={handleClick}>enviar</button>
+      <button className="Boton" onClick={handleClick}>enviar</button>
     </form>
-    </div>
+    </>
   );
 };
