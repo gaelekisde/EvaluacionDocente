@@ -2,6 +2,7 @@ import "/Users/abisa/Desktop/EvaluacionDocente/client/src/pages/register/login.s
 
 export const Register = () => {
   return (
+    <div>
     <form onSubmit={() => alert("Enviado")}>
       <p>
         Nombre de usuario:
@@ -58,5 +59,6 @@ export const Register = () => {
       </p>
       <input type="submit" value={"enviar"} />
     </form>
+    </div>
   );
 };
