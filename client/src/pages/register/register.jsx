@@ -51,7 +51,7 @@ export const Register = () => {
   return (
     <>
     <form onSubmit={() => alert("Enviado")}>
-      <p className="Header">Registrarse a Anonimo</p>
+      <header>Registrarse a Anonimo</header>
       <p className="Nombre_Usuario">
         Nombre de usuario:
         <input type="text" maxLength={20} placeholder="AredJ" name="user_handle" onChange={handleChange}/>

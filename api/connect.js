@@ -2,11 +2,11 @@ import mysql from 'mysql2';
 
 // Crear conexión a la base de datos
 export const db = mysql.createConnection({
-  host: "localhost",
+  host: "monorail.proxy.rlwy.net",
   user: "root",
-  port: 3306,
-  password: "root",
-  database: "evaluaciondocente_db"
+  port: 27683,
+  password: "AOKhHcQUpRNSsEUetDqKXjFMUNbdfCxt",
+  database: "railway"
 });
 
 // Conectar a la base de datos
