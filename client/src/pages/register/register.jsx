@@ -13,45 +13,28 @@ export const Register = () => {
     first_name: "",
     last_name: ""
   })
-  const [err, setErr] = useState (false)
+  const [err, setErr] = useState(null);
 
   const handleChange = (e) => {
-    setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
-    console.log(inputs)
-  }
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    console.log(inputs);
+  };
+
   const handleClick = async (e) => {
     e.preventDefault();
-    try{
-      resetForm();
-      await axios.post("http://localhost:8800/api/auth/register", inputs)
+    try {
+      await axios.post("http://localhost:8800/api/auth/register", inputs);
+    } catch (error) {
+      setErr(error.response.data || error.message);
     }
-    catch(err){
-      setErr(true)
-    }
-  }
-  //console.log(err)
-  if(err) {
-    console.log("hay error")
-  }else {
-    console.log("no hay errores")
-  }
-
-  const resetForm = () => {
-    setInputs({
-      user_handle: "",
-      user_nmrcontrol: "",
-      password: "",
-      user_carrera: "",
-      user_semestre: "",
-      first_name: "",
-      last_name: ""
-    });
   };
+
+  console.log(err);
 
   return (
     <>
     <form onSubmit={() => alert("Enviado")}>
-      <header>Registrarse a Anonimo</header>
+     
       <p className="Nombre_Usuario">
         Nombre de usuario:
         <input type="text" maxLength={20} placeholder="AredJ" name="user_handle" onChange={handleChange}/>
@@ -85,15 +68,15 @@ export const Register = () => {
       <p className="Semestre">
         Semestre:
         <select name="user_semestre" onChange={handleChange}>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
-          <option value={5}>5</option>
-          <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
         </select>
       </p>
       <p className="Nombre">
@@ -104,7 +87,8 @@ export const Register = () => {
         Apellidos:
         <input type="text" maxLength={20} placeholder="Cantu Rodriguez" name="last_name" onChange={handleChange} />
       </p>
-      <button className="Boton" onClick={handleClick}>enviar</button>
+      {err && err}
+      <button onClick={handleClick}>enviar</button>
     </form>
     </>
   );

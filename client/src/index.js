@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Register} from './pages/register/register';
+import { Login } from './pages/login/login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
 <Register />
+<Login />
   </>
 );
 //<React.StrictMode>
