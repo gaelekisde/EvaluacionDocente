@@ -1,8 +1,14 @@
-import express from 'express'
-import {  } from "../controllers/post.js";
+import express from "express"
+import { getPostsistemas }from "../controllers/posts.js"
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", getPosts)
+router.get('/sistemas/:opinion_id', getPostsistemas)
+// router.get('/animacion/:opinion_id', getPostanimacion)
+// router.get('/electromecanica/:opinion_id', getPostelectromecanica)
+// router.get('/industrial/:opinion_id', getPostindustrial)
+// router.get('/mecatronica/:opinion_id', getPostmecatronica)
+// router.get('/petrolera/:opinion_id', getPostpetrolera)
+// router.get('/quimica/:opinion_id', getPostquimica)
 
-export default router
+export default router;
