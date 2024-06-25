@@ -1,8 +1,10 @@
-import express from 'express'
-import {  } from "../controllers/post.js";
+import express from "express"
+import { getPosts, getPost }from "../controllers/posts.js"
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", getPosts)
+// router.get('/sistemas/posts/', getPostsdesistemas)
+router.get('/:carrera/posts', getPosts)
+router.get('/:carrera/posts/:opinion_id', getPost)
 
-export default router
+export default router;
