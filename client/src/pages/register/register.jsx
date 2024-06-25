@@ -32,24 +32,25 @@ export const Register = () => {
   console.log(err);
 
   return (
-    <>
-    <form onSubmit={() => alert("Enviado")}>
-     
-      <p className="Nombre_Usuario">
+    <div className="container">
+    <form className="Formulario" onSubmit={() => alert("Enviado")}>
+      <h1>Registrarse a Anonimo</h1>
+      <label>
         Nombre de usuario:
-        <input type="text" maxLength={20} placeholder="AredJ" name="user_handle" onChange={handleChange}/>
-      </p>
-      <p className="No_Control">
+      </label>
+      <input type="text" maxLength={20} placeholder="AredJ" name="user_handle" onChange={handleChange}/>
+      <label>
         Numero de control:
-        <input type="text" maxLength={9} placeholder="231G0168" name="user_nmrcontrol" onChange={handleChange}/>
-      </p>
-      <p className="Password">
+      </label>
+      <input type="text" maxLength={9} placeholder="231G0168" name="user_nmrcontrol" onChange={handleChange}/>
+      <label>
         Contraseña:
-        <input type="password" maxLength={200} placeholder="password" name="password" onChange={handleChange}/>
-      </p>
-      <p className="Carrera">
+      </label>
+      <input type="password" maxLength={200} placeholder="password" name="password" onChange={handleChange}/>
+      <label>
         Carrera:
-        <select name="user_carrera" onChange={handleChange}>
+      </label>
+      <select title="Carrera" name="user_carrera" onChange={handleChange}>
           <option value={"Sistemas computacionales"}>
             Ing. en Sistemas computacionales
           </option>
@@ -64,10 +65,10 @@ export const Register = () => {
           <option value="Quimica">Ing. Quimica</option>
           <option value="Sabatina">Modalidad Sabatina</option>
         </select>
-      </p>
-      <p className="Semestre">
+      <label>
         Semestre:
-        <select name="user_semestre" onChange={handleChange}>
+      </label>
+      <select title="Semestre" name="user_semestre" onChange={handleChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -78,18 +79,18 @@ export const Register = () => {
           <option value="8">8</option>
           <option value="9">9</option>
         </select>
-      </p>
-      <p className="Nombre">
+      <label>
         Nombre(s):
-        <input type="text" maxLength={15} placeholder="Jared Abisai" name="first_name" onChange={handleChange}/>
-      </p>
-      <p className="Apellido">
+      </label>
+      <input type="text" maxLength={15} placeholder="Jared Abisai" name="fi
+      rst_name" onChange={handleChange}/>
+      <label>
         Apellidos:
-        <input type="text" maxLength={20} placeholder="Cantu Rodriguez" name="last_name" onChange={handleChange} />
-      </p>
+      </label>
+      <input type="text" maxLength={20} placeholder="Cantu Rodriguez" name="last_name" onChange={handleChange} />
       {err && err}
       <button onClick={handleClick}>enviar</button>
     </form>
-    </>
+    </div>
   );
 };

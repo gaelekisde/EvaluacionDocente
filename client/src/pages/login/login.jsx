@@ -27,16 +27,17 @@ export const Login = () => {
   console.log(err);
 
   return (
-    <div className="contenedor-formulario">
-    <form onSubmit={() => alert("Enviado")}>
-      <p>
+    <div className="container">
+    <form className="Formulario" onSubmit={() => alert("Enviado")}>
+      <h1>Bienvenido a Anonimo</h1>
+      <label>
         Nombre de usuario:
-        <input type="text" maxLength={20} placeholder="AredJ" name="user_handle" onChange={handleChange}/>
-      </p>
-      <p>
+      </label>
+      <input type="text" maxLength={20} placeholder="AredJ" name="user_handle" onChange={handleChange}/>
+      <label>
         Contraseña:
-        <input type="password" maxLength={200} placeholder="password" name="password" onChange={handleChange}/>
-      </p>
+      </label>
+      <input type="password" maxLength={200} placeholder="password" name="password" onChange={handleChange}/>
       <button onClick={handleClick}>enviar</button>
     </form>
     </div>

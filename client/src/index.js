@@ -8,8 +8,7 @@ import { Login } from './pages/login/login';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-<Register />
-<Login />
+<Register  />
   </>
 );
 //<React.StrictMode>
