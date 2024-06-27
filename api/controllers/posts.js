@@ -27,3 +27,20 @@ export const getPost = (req, res) => {
         return res.status(200).json(result)
     })   
 }
+
+export const createPosts = (req, res) => {
+    const carrera = req.params.carrera;
+
+    const query = "INSERT INTO opiniones (`user_id`, `carrera`, `opinion_text`) VALUES (?)";
+    
+    const values = [
+        req.body.user_id,
+        carrera,
+        req.body.opinion_text
+    ];
+
+    db.query(query, [values], (err, data) => {
+        if (err) return res.status(500).json(err);
+        return res.status(200).json("Post creado exitosamente");
+    });
+};
