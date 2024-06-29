@@ -15,7 +15,6 @@ db.connect((err) => {
     console.error('error al conectarse a la bd:', err.stack);
     return;
   }
-  console.log('Connectado correctamente a la base de datos el id es:', db.threadId);
 });
 
 // const consulta = "SELECT * FROM USUARIOS;"

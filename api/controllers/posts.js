@@ -2,7 +2,11 @@ import {db} from "../connect.js"
 
 export const getPosts = (req, res) => {
     const carrera = req.params.carrera;
-    const query = 'SELECT * FROM opiniones WHERE carrera = ?';
+    const query = `
+        SELECT opiniones.*, usuarios.user_handle 
+        FROM opiniones
+        JOIN usuarios ON opiniones.user_id = usuarios.user_id
+        WHERE opiniones.carrera = ?`;
     db.query(query, [carrera], (err, results) => {
         if (err) {
             console.error('Error fetching posts:', err);
@@ -15,6 +19,7 @@ export const getPosts = (req, res) => {
     });
 };
 
+
 export const getPost = (req, res) => {
     const opinion_id = req.params.opinion_id;
     const carrera = req.params.carrera;
@@ -26,6 +31,7 @@ export const getPost = (req, res) => {
         if (err) throw err
         return res.status(200).json(result)
     })   
+
 }
 
 export const createPosts = (req, res) => {
@@ -42,5 +48,16 @@ export const createPosts = (req, res) => {
     db.query(query, [values], (err, data) => {
         if (err) return res.status(500).json(err);
         return res.status(200).json("Post creado exitosamente");
+    });
+};
+
+export const likePost = (req, res) => {
+    const opinion_id = req.params.opinion_id;
+
+    const query = "UPDATE opiniones SET num_likes = num_likes + 1 WHERE opinion_id = ?";
+
+    db.query(query, [opinion_id], (err, result) => {
+        if (err) throw err;
+        return res.status(200).json("se ha dado el like con exito");
     });
 };

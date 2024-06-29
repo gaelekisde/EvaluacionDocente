@@ -7,7 +7,7 @@ const Posts = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8800/api/quimica/posts/')
+    fetch('http://localhost:8800/api/sistemas/posts/')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -24,6 +24,8 @@ const Posts = () => {
       });
   }, []);
 
+  
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -37,9 +39,14 @@ const Posts = () => {
       <h1>Posts</h1>
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>
-            <h2>{post.carrera}</h2>
+          <li key={post.opinion_id}>
+            <h2>{post.user_handle}</h2>
+            <h3>{post.carrera}</h3>
             <p>{post.opinion_text}</p>
+            <p>{post.created_at}</p>
+            <p>likes: {post.num_likes}</p>
+            <p>comentarios: {post.num_comments}</p>
+            <button>like</button> <button>comentar</button>
           </li>
         ))}
       </ul>
