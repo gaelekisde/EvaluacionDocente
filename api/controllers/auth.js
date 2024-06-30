@@ -48,7 +48,11 @@ export const login = (req, res) => {
     const checkPassword = bcrypt.compareSync(req.body.password, data[0].password);
     if (!checkPassword) return res.status(400).json("Contraseña o usuario incorrecto");
 
-    const token = jwt.sign({ id: data[0].id }, "secretkey");
+    const user = {
+      user_handle: data[0].user_handle // puedes incluir más información si es necesario
+    };
+
+    const token = jwt.sign(user, "secretkey");
     const { password, ...others } = data[0];
 
     res.cookie("accessToken", token, { httpOnly: true })

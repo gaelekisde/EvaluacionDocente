@@ -24,17 +24,21 @@ const Posts = () => {
       });
   }, []);
 
-  
+const handleLike = (carrera, opinionId) => {
+  fetch(`http://localhost:8800/api/${carrera}/posts/${opinionId}/like`, {
+    method: 'PUT'
+  })
+};
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+if (loading) {
+  return <div>Loading...</div>;
+}
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+if (error) {
+  return <div>Error: {error.message}</div>;
+}
 
-  return (
+return (
     <div>
       <h1>Posts</h1>
       <ul>
@@ -46,7 +50,7 @@ const Posts = () => {
             <p>{post.created_at}</p>
             <p>likes: {post.num_likes}</p>
             <p>comentarios: {post.num_comments}</p>
-            <button>like</button> <button>comentar</button>
+            <button onClick={() => handleLike(post.carrera, post.opinion_id)}>like</button> <button>comentar</button>
           </li>
         ))}
       </ul>
