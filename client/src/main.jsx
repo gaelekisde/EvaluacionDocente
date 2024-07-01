@@ -1,9 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './app';
+import { createRoot } from 'react-dom/client';
+import { CookiesProvider } from 'react-cookie';
+import App from './App';
+import Logout from './components/Logout/Logout';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+// Crear un punto de montaje usando createRoot
+const root = createRoot(document.getElementById('root'));
+
+// Renderizar la aplicación dentro del punto de montaje
+root.render(
+  <CookiesProvider>
     <App />
-  </React.StrictMode>
+    <Logout />
+  </CookiesProvider>
 );

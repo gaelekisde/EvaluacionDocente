@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken"
 export const getPosts = (req, res) => {
     const carrera = req.params.carrera;
     const query = `
-        SELECT opiniones.*, usuarios.user_handle 
+        SELECT opiniones.*, usuarios.user_handle, usuarios.user_pfp
         FROM opiniones
         JOIN usuarios ON opiniones.user_id = usuarios.user_id
         WHERE opiniones.carrera = ?`;

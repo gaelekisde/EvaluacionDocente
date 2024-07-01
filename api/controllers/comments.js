@@ -15,10 +15,10 @@ export const getComments = (req, res) => {
     })   
 }
 export const putComment = (req, res) => {
+    
     const opinion_id = req.params.opinion_id;
-
     const token = req.cookies.accessToken;
-    if (!token) return res.status(401).json("Not logged in!");
+    if (!token) return res.status(401).json("Access not allowed!");
     
     jwt.verify(token, "secretkey", (err, userInfo) => {
         if (err) return res.status(403).json("Token is not valid!");

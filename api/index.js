@@ -12,7 +12,11 @@ import likeRoutes from "./routes/like.js"
 
 //middleware para que reciba el jason
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:5173', // URL de React
+  credentials: true
+}));
+
 app.use(cookieParser())
 
 app.use("/api/auth", authRoutes);

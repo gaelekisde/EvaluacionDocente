@@ -1,39 +1,63 @@
-import React from 'react'
-import "./Login.css"
 
-function Login () {
-    return (
-        <div className="login-container">
-      <form className="login-form">
-        <div className="header">
-          <img
-            className="icon"
-            src="https://i.pinimg.com/originals/6b/49/ac/6b49aca23731eb1d2a9ea52a4c5c5ed1.png"
-            alt="App Icon"
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
+
+const Login = () => {
+  const [user_handle, setUserHandle] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [, setCookie] = useCookies(['accessToken']);
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8800/api/auth/login', { user_handle, password }, { withCredentials: true });
+      
+      // No es necesario establecer la cookie manualmente aquí
+      // La cookie ya debería estar establecida por el servidor
+      console.log('Login exitoso', response.data);
+      navigate('/posts'); // Redirigir a la página de posts
+    } catch (err) {
+      if (err.response) {
+        setError(err.response.data.message || 'Error en el inicio de sesión');
+      } else if (err.request) {
+        setError('No response received from the server');
+      } else {
+        setError(`Error setting up the request: ${err.message}`);
+      }
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <form onSubmit={handleLogin}>
+        <div>
+          <label>User Handle:</label>
+          <input 
+            type="text" 
+            value={user_handle} 
+            onChange={(e) => setUserHandle(e.target.value)} 
+            required 
           />
-          <h1>Bienvenido a void</h1>
         </div>
-        <div className="form-body">
-          <label className="form-label" htmlFor="username">
-            Nombre de usuario:
-          </label>
-          <input className="form-input" type="text" id="username" name="username" />
-          <label className="form-label" htmlFor="password">
-            Contraseña:
-          </label>
-          <input className="form-input" type="password" id="password" name="password" />
-          <button className="submit-button" type="submit">
-            Log in
-          </button>
+        <div>
+          <label>Password:</label>
+          <input 
+            type="password" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required 
+          />
         </div>
+        <button type="submit">Login</button>
       </form>
-      <p className="footer-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, officiis delectus eius
-        excepturi vitae a at dolore placeat amet maxime commodi dolorem vero numquam, sit sapiente,
-        ipsum temporibus quos cum.
-      </p>
     </div>
-    )
-}
+  );
+};
 
-export default Login
+export default Login;
