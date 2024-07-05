@@ -26,7 +26,7 @@ const Register = () => {
         last_name 
       }, { withCredentials: true });
       console.log('Registro exitoso', response.data);
-      navigate('/'); // Redirigir a la página de home
+      navigate('/home'); // Redirigir a la página de home
     } catch (err) {
       if (err.response) {
         setError(err.response.data.message || 'Error en el registro');

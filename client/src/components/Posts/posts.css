@@ -1,0 +1,20 @@
+.contenedor-posts{
+    width: 100%;
+}
+.titulo-Posts{
+    text-align: center;
+}
+.contenedor-post{
+    padding: 0%;
+}
+.pfp-usuario{
+    width: 5%;
+    border-radius: 50%;
+}
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  
+    font-size: xx-large;
+}
+  

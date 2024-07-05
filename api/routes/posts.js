@@ -1,8 +1,9 @@
 import express from "express"
-import { getPosts, getPost, createPosts }from "../controllers/posts.js"
+import { getPosts, getPost, createPosts, getAllPosts }from "../controllers/posts.js"
 
 const router = express.Router();
 
+router.get('/general/posts', getAllPosts)
 router.get('/:carrera/posts', getPosts)
 router.get('/posts/:opinion_id', getPost)
 

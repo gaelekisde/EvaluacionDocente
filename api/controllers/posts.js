@@ -2,6 +2,7 @@ import {db} from "../connect.js"
 import jwt from "jsonwebtoken"
 
 export const getPosts = (req, res) => {
+
     const carrera = req.params.carrera;
     const query = `
         SELECT opiniones.*, usuarios.user_handle, usuarios.user_pfp
@@ -24,9 +25,7 @@ export const getPosts = (req, res) => {
 export const getPost = (req, res) => {
     
     const opinion_id = req.params.opinion_id;
-    const carrera = req.params.carrera;
-
-    //const query = `select * from opiniones where carrera = '${carrera}' and opinion_id = ?`\
+    
     const query = `select * from opiniones where carrera opinion_id = ?`
     console.log(query)
     
@@ -70,3 +69,11 @@ export const createPosts = (req, res) => {
     });
 };
 
+export const getAllPosts = (req, res) => {
+    const query = `SELECT * FROM opiniones` 
+
+    db.query(query, (err, result) => {
+        if(err) return res.status(500).json(err)
+        return res.status(200).json(result)
+    })
+}
