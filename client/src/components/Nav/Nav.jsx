@@ -6,7 +6,6 @@ const Nav = () => {
     return(
         <div className="contenedor-principal">
             <div className="contenedor-titulo">
-                bienvenido a void
             </div>
             <div className="Contenedor-menu">
                 <ul>
@@ -20,7 +19,6 @@ const Nav = () => {
                             <option value={"Petrolera"}>Ing. Petrolera</option>
                             <option value={"Animacion digital y efectos visuales"}>Ing. Animacion digital y efectos visuales</option>
                             <option value={"Quimica"}>Ing. Quimica</option>
-                            <option value={"Sabatina"}>Modalidad Sabatina</option>
                         </select>
                     </li>
                     <li>text2</li>

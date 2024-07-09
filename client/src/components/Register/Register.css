@@ -1,0 +1,44 @@
+.header-title{
+    background-color: rgb(147, 105, 8);
+    display: flex;
+    justify-items: center;
+    justify-content:space-between;
+}
+.titulo-registro{
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.logo-img{
+    width: 20%;
+    border-radius: 50%;
+}
+.contenedor-formulario{
+    margin: 74px 25px 20px 25px;
+}
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 3%;
+}
+.campo-formulario label {
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    font-style:initial;
+}
+.fila-formulario {
+    display: flex;
+    justify-content: space-between;
+}
+.campo-formulario:last-child {
+    margin-right: 0; 
+}
+.campo-formulario-inputs {
+    width: 100%; 
+    font-size: 18px; 
+    border: solid;
+    border-top-left-radius: 3px; /* Esquina inferior izquierda */
+    border-top-right-radius: 3px; /* Esquina inferior derecha */
+    border-bottom-left-radius: 3px; /* Esquina inferior izquierda */
+    border-bottom-right-radius: 3px; /* Esquina inferior derecha */
+}

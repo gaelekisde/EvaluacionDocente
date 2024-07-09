@@ -70,7 +70,9 @@ export const createPosts = (req, res) => {
 };
 
 export const getAllPosts = (req, res) => {
-    const query = `SELECT * FROM opiniones` 
+    const query = `        SELECT opiniones.*, usuarios.user_handle, usuarios.user_pfp
+        FROM opiniones
+        JOIN usuarios ON opiniones.user_id = usuarios.user_id` 
 
     db.query(query, (err, result) => {
         if(err) return res.status(500).json(err)

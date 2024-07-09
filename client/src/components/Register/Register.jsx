@@ -1,37 +1,42 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./Register.css";
 
 const Register = () => {
-  const [user_handle, setUserHandle] = useState('');
-  const [user_nmrcontrol, setUserNmrControl] = useState('');
-  const [password, setPassword] = useState('');
-  const [user_carrera, setUserCarrera] = useState('');
-  const [user_semestre, setUserSemestre] = useState('');
-  const [first_name, setFirstName] = useState('');
-  const [last_name, setLastName] = useState('');
-  const [error, setError] = useState('');
+  const [user_handle, setUserHandle] = useState("");
+  const [user_nmrcontrol, setUserNmrControl] = useState("");
+  const [password, setPassword] = useState("");
+  const [user_carrera, setUserCarrera] = useState("");
+  const [user_semestre, setUserSemestre] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8800/api/auth/register', { 
-        user_handle, 
-        user_nmrcontrol, 
-        password, 
-        user_carrera, 
-        user_semestre,
-        first_name, 
-        last_name 
-      }, { withCredentials: true });
-      console.log('Registro exitoso', response.data);
-      navigate('/home'); // Redirigir a la página de home
+      const response = await axios.post(
+        "http://localhost:8800/api/auth/register",
+        {
+          user_handle,
+          user_nmrcontrol,
+          password,
+          user_carrera,
+          user_semestre,
+          first_name,
+          last_name,
+        },
+        { withCredentials: true }
+      );
+      console.log("Registro exitoso", response.data);
+      navigate("/"); // Redirigir a la página de home
     } catch (err) {
       if (err.response) {
-        setError(err.response.data.message || 'Error en el registro');
+        setError(err.response.data.message || "Error en el registro");
       } else if (err.request) {
-        setError('No se recibió respuesta del servidor');
+        setError("No se recibió respuesta del servidor");
       } else {
         setError(`Error al configurar la solicitud: ${err.message}`);
       }
@@ -40,76 +45,106 @@ const Register = () => {
 
   return (
     <div>
-      <h2>Registro</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleRegister}>
-        <div>
-          <label>User Handle:</label>
-          <input 
-            type="text" 
-            value={user_handle} 
-            onChange={(e) => setUserHandle(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Numero de control:</label>
-          <input 
-            type="text" 
-            value={user_nmrcontrol} 
-            onChange={(e) => setUserNmrControl(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Carrera:</label>
-          <input 
-            type="text" 
-            value={user_carrera} 
-            onChange={(e) => setUserCarrera(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>semestre:</label>
-          <input 
-            type="text" 
-            value={user_semestre} 
-            onChange={(e) => setUserSemestre(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Nombre:</label>
-          <input 
-            type="text" 
-            value={first_name} 
-            onChange={(e) => setFirstName(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label>Apellido:</label>
-          <input 
-            type="text" 
-            value={last_name} 
-            onChange={(e) => setLastName(e.target.value)} 
-            required 
-          />
-        </div>
-        <button type="submit">Registrar</button>
-      </form>
+      <div className="header-title">
+        <h1 className="titulo-registro">REGISTRARSE A ANONIMO</h1>
+        <img
+          className="logo-img"
+          src="https://i.pinimg.com/736x/ce/ef/ad/ceefad40d6a85f18ba82b99e08e64257.jpg"
+        />
+      </div>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <div className="contenedor-formulario">
+        <form onSubmit={handleRegister}>
+          <div className="campo-formulario">
+            <label>Nombre(s):</label>
+            <input
+            className="campo-formulario-inputs"
+              type="text"
+              value={first_name}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="campo-formulario">
+            <label>Apellido:</label>
+            <input
+            className="campo-formulario-inputs"
+              type="text"
+              value={last_name}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="fila-formulario">
+            <div className="campo-formulario">
+              <label>No. de Ctrl:</label>
+              <input
+              className="campo-formulario-inputs"
+                type="text"
+                value={user_nmrcontrol}
+                onChange={(e) => setUserNmrControl(e.target.value)}
+                required
+              />
+            </div>
+            <div className="campo-formulario">
+              <label>Semestre:</label>
+              <input className="campo-formulario-inputs"
+                type="text"
+                value={user_semestre}
+                onChange={(e) => setUserSemestre(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className="campo-formulario">
+            <label>Carrera:</label>
+            <select
+            className="campo-formulario-inputs"
+              name="user_carrera"
+              value={user_carrera}
+              onChange={(e) => setUserCarrera(e.target.value)}
+              required
+            >
+              <option value="Sistemas computacionales">
+                Ing. en Sistemas computacionales
+              </option>
+              <option value="Industrial">Ing. Industrial</option>
+              <option value="Mecatronica">Ing. Mecatronica</option>
+              <option value="Electromecanica">Ing. Electromecanica</option>
+              <option value="Administracion">Ing. Administracion</option>
+              <option value="Petrolera">Ing. Petrolera</option>
+              <option value="Animacion digital y efectos visuales">
+                Ing. Animacion digital y efectos visuales
+              </option>
+              <option value="Quimica">Ing. Quimica</option>
+              <option value="Sabatina">Modalidad Sabatina</option>
+            </select>
+          </div>
+          <div className="campo-formulario">
+            <label>User Handle:</label>
+            <input
+            className="campo-formulario-inputs"
+              type="text"
+              value={user_handle}
+              onChange={(e) => setUserHandle(e.target.value)}
+              required
+            />
+          </div>
+          <div className="campo-formulario">
+            <label>Password:</label>
+            <input
+            className="campo-formulario-inputs"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">Registrar</button>
+        </form>
+      </div>
     </div>
   );
-}
+};
 
 export default Register;

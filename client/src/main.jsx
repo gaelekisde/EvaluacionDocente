@@ -4,7 +4,6 @@ import { CookiesProvider } from 'react-cookie';
 import './Main.css'
 import App from './App';
 import Logout from './components/Logout/Logout';
-import Nav from './components/Nav/Nav'
 
 // Crear un punto de montaje usando createRoot
 const root = createRoot(document.getElementById('root'));
@@ -12,7 +11,6 @@ const root = createRoot(document.getElementById('root'));
 // Renderizar la aplicación dentro del punto de montaje
 root.render(
   <CookiesProvider>
-    <Nav />
     <App />
     <Logout />
   </CookiesProvider>

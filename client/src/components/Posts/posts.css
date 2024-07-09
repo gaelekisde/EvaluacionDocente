@@ -1,20 +1,118 @@
-.contenedor-posts{
-    width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
 }
-.titulo-Posts{
-    text-align: center;
+
+.contenedor-post {
+    list-style-type: none;
+    padding: 0;
 }
-.contenedor-post{
-    padding: 0%;
+.contenedor-posts {
+width: 100%;
 }
-.pfp-usuario{
-    width: 5%;
-    border-radius: 50%;
+.contenedor-un-post{
+    padding: 4%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.pfp-usuario {
+  width: 5%;
+  border-radius: 50%;
 }
 .post-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;  
-    font-size: xx-large;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: xx-large;
 }
-  
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pfp-usuario {
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-container p {
+  margin: 0;
+  font-size: 14px; /* Ajusta el tamaño según sea necesario */
+}
+
+.info-container h3 {
+  margin: 0;
+  font-size: 16px; /* Ajusta el tamaño según sea necesario */
+  font-weight: normal; /* Ajusta el peso de la fuente según sea necesario */
+}
+
+.user-handle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.user-carrera {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.opinion-text, .created-at, .likes, .comments {
+    font-family: 'Roboto', sans-serif;
+    margin: 5px 0;
+}
+
+.like-button, .comment-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.like-button:hover, .comment-button:hover {
+    background-color: #0056b3;
+}
+
+.comment-input-container {
+    margin-top: 10px;
+}
+
+.comment-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 22px); /* Ajuste para el padding */
+}
+
+.submit-comment-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.submit-comment-button:hover {
+    background-color: #218838;
+}
