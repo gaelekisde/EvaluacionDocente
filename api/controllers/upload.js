@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import fs from "fs";
 import { db } from "../connect.js";
 import jwt from "jsonwebtoken";
-import { userInfo } from "os";
+
 dotenv.config();
 
 const storage = multer.diskStorage({

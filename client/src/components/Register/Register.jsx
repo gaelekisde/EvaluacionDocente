@@ -89,7 +89,7 @@ const Register = () => {
             <div className="campo-formulario">
               <label>Semestre:</label>
               <input className="campo-formulario-inputs"
-                type="text"
+                type="number"
                 value={user_semestre}
                 onChange={(e) => setUserSemestre(e.target.value)}
                 required
@@ -105,23 +105,23 @@ const Register = () => {
               onChange={(e) => setUserCarrera(e.target.value)}
               required
             >
-              <option value="Sistemas computacionales">
+              <option value="sistemas">
                 Ing. en Sistemas computacionales
               </option>
-              <option value="Industrial">Ing. Industrial</option>
-              <option value="Mecatronica">Ing. Mecatronica</option>
-              <option value="Electromecanica">Ing. Electromecanica</option>
-              <option value="Administracion">Ing. Administracion</option>
-              <option value="Petrolera">Ing. Petrolera</option>
-              <option value="Animacion digital y efectos visuales">
+              <option value="industrial">Ing. Industrial</option>
+              <option value="mecatronica">Ing. Mecatronica</option>
+              <option value="electromecanica">Ing. Electromecanica</option>
+              <option value="administracion">Ing. Administracion</option>
+              <option value="petrolera">Ing. Petrolera</option>
+              <option value="animacion">
                 Ing. Animacion digital y efectos visuales
               </option>
-              <option value="Quimica">Ing. Quimica</option>
-              <option value="Sabatina">Modalidad Sabatina</option>
+              <option value="quimica">Ing. Quimica</option>
+              <option value="sabatina">Modalidad Sabatina</option>
             </select>
           </div>
           <div className="campo-formulario">
-            <label>User Handle:</label>
+            <label>Username:</label>
             <input
             className="campo-formulario-inputs"
               type="text"
@@ -131,7 +131,7 @@ const Register = () => {
             />
           </div>
           <div className="campo-formulario">
-            <label>Password:</label>
+            <label>Contraseña­</label>
             <input
             className="campo-formulario-inputs"
               type="password"
@@ -140,7 +140,9 @@ const Register = () => {
               required
             />
           </div>
+          <div className="contenedor-boton">
           <button type="submit">Registrar</button>
+          </div>
         </form>
       </div>
     </div>

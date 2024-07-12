@@ -3,6 +3,8 @@
     display: flex;
     justify-items: center;
     justify-content:space-between;
+    position: fixed;
+    top: 0%;
 }
 .titulo-registro{
     font-size: xx-large;
@@ -13,7 +15,7 @@
     border-radius: 50%;
 }
 .contenedor-formulario{
-    margin: 74px 25px 20px 25px;
+    margin: 100px 25px 20px 25px;
 }
 .campo-formulario {
     display: flex;
@@ -41,4 +43,17 @@
     border-top-right-radius: 3px; /* Esquina inferior derecha */
     border-bottom-left-radius: 3px; /* Esquina inferior izquierda */
     border-bottom-right-radius: 3px; /* Esquina inferior derecha */
+}
+.contenedor-boton{
+    text-align: center;
+}
+.contenedor-boton button{
+    width: 45%;
+    height: 25px;
+    background-color: rgb(1, 85, 1);
+    border-top-left-radius: 3px; /* Esquina inferior izquierda */
+    border-top-right-radius: 3px; /* Esquina inferior derecha */
+    border-bottom-left-radius: 3px; /* Esquina inferior izquierda */
+    border-bottom-right-radius: 3px; 
+    border: solid;
 }

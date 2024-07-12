@@ -1,98 +1,82 @@
-.login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+.header-presentacion{
+  margin: 100px 50px 50px 50px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content:space-between;
+  text-align: center;
+}
+.img-logo{
+  width: 20%;
+  border-radius: 50%;
+  border: solid;
+}
+.contenedor-campo {
+  margin-left: 40px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 3%;
+}
+.input-text{
+  width: 100%; 
+  font-size: 18px; 
+  border: solid;
+  border-top-left-radius: 3px; /* Esquina inferior izquierda */
+  border-top-right-radius: 3px; /* Esquina inferior derecha */
+  border-bottom-left-radius: 3px; /* Esquina inferior izquierda */
+  border-bottom-right-radius: 3px; /* Esquina inferior derecha */
+  text-align: center;
+}
+.contenedor-boton-login{
+  margin-top: 20px;
+  text-align: center;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 1rem;
+  padding: 3%;
+  padding-bottom: 40px;
   
-  .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .icon {
-    width: 50px;
-    height: auto;
-    margin-right: 10px;
-  }
-  
-  h1 {
-    font-size: 1.5em;
-    margin: 0;
-  }
-  
-  .form-body {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-label {
-    font-size: 1.2em;
-    margin-bottom: 5px;
-  }
-  
-  .form-input {
-    font-size: 1em;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .submit-button {
-    font-size: 1em;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .footer-text {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .login-container {
-      padding: 15px;
-    }
-  
-    .header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .icon {
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
-  
-    h1 {
-      font-size: 1.2em;
-    }
-  
-    .form-label,
-    .form-input {
-      font-size: 1em;
-    }
-  
-    .submit-button {
-      font-size: 1em;
-    }
-  
-    .footer-text {
-      font-size: 0.8em;
-    }
-  }
-  
+}
+.contenedor-boton-login button{
+  color: white;
+  width: 100%;
+  height: 25px;
+  background-color: rgb(1, 85, 1);
+  border-top-left-radius: 3px; /* Esquina inferior izquierda */
+  border-top-right-radius: 3px; /* Esquina inferior derecha */
+  border-bottom-left-radius: 3px; /* Esquina inferior izquierda */
+  border-bottom-right-radius: 3px; 
+  border: solid black;
+}
+.contendor-recovery{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  padding-bottom: 15%;
+}
+.link{
+  color: black;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: small;
+} 
+.contenedor-link-registro{
+  text-align: center;
+}
+.contenedor-link-registro button{
+  width: 32%;
+  height: 25px;
+  background-color: yellow;
+  border-top-left-radius: 3px; /* Esquina inferior izquierda */
+  border-top-right-radius: 3px; /* Esquina inferior derecha */
+  border-bottom-left-radius: 3px; /* Esquina inferior izquierda */
+  border-bottom-right-radius: 3px; 
+  border: solid black;
+}
+.contenedor-link-registro a{
+  text-decoration: none;
+}
