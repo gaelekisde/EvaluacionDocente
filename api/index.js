@@ -2,7 +2,6 @@ import express from "express";
 const app = express();
 import cors from 'cors';
 import cookieParser from "cookie-parser";
-import multer from "multer";
 
  
 import authRoutes from "./routes/auth.js";
@@ -11,6 +10,7 @@ import carrerasRoutes from './routes/carreras.js'
 import postsRoutes from "./routes/posts.js"
 import commentsRoutes from "./routes/comment.js"
 import likeRoutes from "./routes/like.js"
+import uploadRoute from "./routes/upload.js"
 
 //middleware para que reciba el jason
 app.use(express.json())
@@ -27,9 +27,13 @@ app.use("/api", carrerasRoutes)
 app.use("/api", postsRoutes)
 app.use("/api", commentsRoutes)
 app.use("/api", likeRoutes)
+app.use("/api", uploadRoute);
 
 app.use(cookieParser());
 
-app.listen(8800, () => {
-  console.log("servidor coriendo en el puerto localhost:8800");
-});
+import uploadRouter from "./routes/upload.js"; // Adjust the path as needed
+
+app.use('/api', uploadRouter);
+
+const PORT = process.env.PORT || 8800;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
