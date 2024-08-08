@@ -26,13 +26,20 @@ export const getPost = (req, res) => {
     
     const opinion_id = req.params.opinion_id;
     
-    const query = `select * from opiniones where carrera opinion_id = ?`
-    console.log(query)
-    
-    db.query(query, [opinion_id], (err, result) => {
-        if (err) throw err
-        return res.status(200).json(result)
-    })   
+    const query = `
+        SELECT opiniones.*, usuarios.user_handle, usuarios.user_pfp 
+        FROM opiniones 
+        JOIN usuarios ON opiniones.user_id = usuarios.user_id 
+        WHERE opiniones.opinion_id = ?
+    `;
+    try{
+        db.query(query, [opinion_id], (err, result) => {
+            if (err) throw err
+            return res.status(200).json(result)
+        })   
+    } catch(err){
+        return res.status(500).json(err)
+    }
 }
 
 export const createPosts = (req, res) => {

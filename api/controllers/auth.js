@@ -38,7 +38,7 @@ export const register = (req, res) => {
   });
 };
 
-export const login = (req, res) => {
+export const login = async (req, res) => {
   const q = 'SELECT * FROM usuarios WHERE user_handle = ?';
 
   db.query(q, [req.body.user_handle], (err, data) => {
